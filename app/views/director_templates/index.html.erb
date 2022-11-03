@@ -8,7 +8,11 @@
       <img src="https://robohash.org/<%= a_director.name %>">
     </td>
     <td><%= a_director.name %></td>
-    <td><%= a_director.bio %></td>
+    <td><%= a_director.dob %></td>
+    <td>
+      <a href="/directors/<%= a_director.id %>">
+        Show details
+    </td>
   </tr>
 <% end %>
 </table>
