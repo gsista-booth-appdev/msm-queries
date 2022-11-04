@@ -55,3 +55,32 @@
     <%= time_ago_in_words(@the_actor.updated_at) %> ago
   </dd>
 </dl>
+
+<hr>
+
+<h2> Filmography </h2>
+
+<table border="1">
+<% @character.each do |a_character| %>
+  <tr>
+    <td>
+      <%= Movie.where({:id => a_character.movie_id }).first.title %>
+    </td>
+    <td>
+      <%= Movie.where({:id => a_character.movie_id }).first.year %>
+    </td>
+    <td>
+      <% d = Movie.where({ :id => a_character.movie_id }).first.director_id %>
+      <%= Director.where({:id => d}).first.name %>
+    </td>
+    <td>
+      <%= a_character.name %>
+    </td>
+    <td>
+      <a href="/movies/<%= a_character.movie_id %>">
+        Show details
+      </a>
+    </td>  
+  </tr>
+<% end %>
+</table>
