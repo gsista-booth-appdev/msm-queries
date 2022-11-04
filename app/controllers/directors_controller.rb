@@ -11,4 +11,12 @@ class DirectorsController < ApplicationController
 
     render({:template => "director_templates/eldest"})
   end
+
+  def director_details
+    the_id = params.fetch("an_id")
+
+    @the_director = Director.where({ :id => the_id }).first
+
+    render({:template => "director_templates/show"})
+  end
 end
